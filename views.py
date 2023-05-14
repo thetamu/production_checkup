@@ -439,24 +439,6 @@ def done_detail_archive(request):
             return HttpResponseRedirect(''.join(f"archive/{pk}"))
     return render(request, 'done_detail_archive_success.html', locals(), {'form': form})
 
-
-    # def done_details(self):
-    #     done_details = []
-    #     for row in DoneDetail.objects.filter(user=self.get_object()):
-    #         if datetime.now().month == row.time_when_done.month\
-    #                 and datetime.now().year == row.time_when_done.year:
-    #             done_details.append(row)
-    #     return done_details
-    #
-    # def full_reward(self):
-    #     full_reward = 0
-    #     for row in DoneDetail.objects.filter(user=self.get_object()):
-    #         if datetime.now().month == row.time_when_done.month\
-    #                 and datetime.now().year == row.time_when_done.year:
-    #             full_reward += row.reward
-    #     return round(full_reward, 2)
-
-
 class ProfileUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = ('personal_account.change_user',)
     form_class = CustomUserUpdateForm
